@@ -1,0 +1,129 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redes Sociais</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.plot.ly/plotly-2.27.0.min.js" charset="utf-8"></script>
+</head>
+<body>
+    <header>
+        <h1>Relatório das redes sociais</h1>
+        <nav>
+            <a href="index.html">Mundo</a>
+            <a href="#">Minha escola</a>
+        </nav>
+        
+    </header>
+    <main class="graficos-section">
+        <section id="graficos-container" class="graficos-container">
+            <!-- crie os gráficos/texto aqui -->
+        </section>
+    </main>
+
+   
+</head>
+
+    <footer>
+        <p>Você sabia que o mundo tem <span>7,88 bilhões.</span> de pessoas e que aproximadamente<span>5,04 bilhões</span> estão conectadas em alguma rede social e passam em média<span> 2 horas</span> e <span>38 minutos</span> conectadas. Isso significa que aproximadamente <span>63,89%</span> de Pessoas estão conectadas em alguma rede social.</p>
+    </footer>
+
+    <script type="module" src="graficos/common.js"></script>
+    <script type="module" src="graficos/informacoesGlobais.js"></script>
+    <script type="module" src="graficos/quantidadeUsuarios.js"></script>
+</body>
+</html>
+
+
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gráfico de Redes Sociais</title>
+    <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
+    <style>
+        /* Centraliza o contêiner do gráfico */
+        #grafico-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* O gráfico fica centralizado verticalmente */
+        }
+        /* Define o tamanho do gráfico */
+        #grafico {
+            width: 1500px;
+            height: 600px;
+        }
+    </style>
+</head>
+<body>
+    <div id="grafico-container">
+        <div id="grafico"></div>
+    </div>
+
+    <script>
+        // Dados das redes sociais
+        const plataformas = ["Facebook", "YouTube", "WhatsApp", "Instagram", "TikTok", "WeChat"];
+        const usuarios = [3049, 2491, 2000, 2000, 1562, 1336];
+
+        // Configuração do gráfico
+        const dados = [{
+            x: plataformas,
+            y: usuarios,
+            type: 'bar',
+            marker: {
+                color: 'white', // Cor das barras
+                line: {
+                    color: 'rgba(255, 255, 255, 0.5)', // Cor da borda das barras
+                    width: 0.5 // Largura da borda
+                }
+            }
+        }];
+
+              
+        
+
+        const layout = {
+            title: {
+                text: 'Redes Sociais com Mais Usuários no Mundo',
+            
+                font: {
+                    size: 24,
+                    color: 'white'
+                },
+                x: 0.5, // Centraliza o título
+                xanchor: 'center' // Centraliza o título
+            },
+
+            paper_bgcolor: '#222831', // Cor de fundo do gráfico
+            plot_bgcolor: '#222831', // Cor de fundo do plot
+            xaxis: {
+                showgrid: false, // Remove as linhas de grade
+                zeroline: false, // Remove a linha zero
+                title: '', // Remove o título do eixo X
+                tickangle: 0, // Mantém os rótulos do eixo X em linha
+                tickfont: {
+                    color: 'white' // Rótulos do eixo X em branco
+                }
+            },
+            yaxis: {
+                showgrid: false, // Remove as linhas de grade
+                zeroline: false, // Remove a linha zero
+                title: '', // Remove o título do eixo Y
+                tickfont: {
+                    color: 'white' // Rótulos do eixo Y em branco
+                },
+                ticks: 'outside', // Mantém os ticks do eixo Y visíveis
+            },
+            showlegend: false // Remove a legenda do gráfico
+        };
+
+        // Renderiza o gráfico
+        Plotly.newPlot('grafico', dados, layout);
+    </script>
+</body>
+</html>
